@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniVerse Vault | A World of Miniature Legends</title>
+  <meta name="description" content="MiniVerse Vault is a world of LEGO builds, diecast collectibles, Formula 1 legends, movie icons, characters, spaceships, aircraft and miniature worlds.">
+
+  <style>
+    :root{
+      --bg:#06080b;
+      --panel:#0d1117;
+      --panel2:#121820;
+      --text:#f4f5f7;
+      --muted:#aeb5bf;
+      --gold:#d6a84f;
+      --gold2:#f0cf83;
+      --line:#252d38;
+      --blue:#6fb7ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(14px);
+      background:rgba(6,8,11,.82);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      width:min(1120px,92%);margin:auto;
+      min-height:68px;display:flex;align-items:center;
+      justify-content:space-between;gap:25px;
+    }
+    .brand{
+      text-decoration:none;font-weight:800;letter-spacing:1.5px;
+    }
+    .brand span{color:var(--gold)}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{
+      text-decoration:none;color:var(--muted);font-size:13px;
+      text-transform:uppercase;letter-spacing:1px;
+    }
+    .nav-links a:hover{color:var(--gold2)}
+    .hero{
+      min-height:78vh;display:flex;align-items:center;
+      text-align:center;padding:90px 20px;
+      background:
+        radial-gradient(circle at 50% 35%,rgba(214,168,79,.13),transparent 28%),
+        radial-gradient(circle at 50% 55%,#18212b 0%,#090c11 43%,#040507 100%);
+      border-bottom:1px solid var(--line);
+      position:relative;overflow:hidden;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:0;opacity:.25;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:42px 42px;
+    }
+    .hero-content{max-width:950px;margin:auto;position:relative}
+    .eyebrow{
+      text-transform:uppercase;letter-spacing:5px;font-size:11px;
+      color:var(--gold);margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(48px,9vw,94px);line-height:.95;
+      letter-spacing:-4px;margin-bottom:25px;
+    }
+    h1 span,.gold{color:var(--gold)}
+    .tagline{
+      font-size:clamp(18px,3vw,25px);letter-spacing:3px;
+      text-transform:uppercase;color:#ddd;margin-bottom:20px;
+    }
+    .hero p{max-width:760px;margin:auto;color:var(--muted);font-size:18px}
+    .container{width:min(1120px,92%);margin:auto}
+    section{padding:90px 0}
+    .section-title{font-size:clamp(30px,5vw,44px);margin-bottom:18px;line-height:1.15}
+    .section-title span{color:var(--gold)}
+    .intro{max-width:850px;color:#c5cad2;font-size:17px}
+    .story{background:linear-gradient(90deg,#0a0d12,#10151c,#0a0d12);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .story-box{
+      border-left:3px solid var(--gold);padding:28px 32px;
+      background:rgba(255,255,255,.025);margin-top:32px;
+    }
+    .story-box p{color:#d0d4da;margin-bottom:16px}
+    .story-box p:last-child{margin-bottom:0}
+    .pillars{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:18px;margin-top:38px
+    }
+    .pillar{
+      background:linear-gradient(145deg,#11161d,#0b0f14);
+      border:1px solid var(--line);padding:28px;
+      transition:.3s ease;min-height:175px;
+    }
+    .pillar:hover{border-color:var(--gold);transform:translateY(-5px)}
+    .icon{font-size:28px;margin-bottom:13px}
+    .pillar h3{font-size:19px;margin-bottom:9px}
+    .pillar p{color:#aeb5bf;font-size:14px}
+    .meaning{background:linear-gradient(180deg,#090c11,#111820)}
+    .meaning-box{text-align:center;max-width:900px;margin:auto}
+    .meaning-box .big{
+      font-size:clamp(30px,6vw,60px);font-weight:900;
+      margin:32px 0;color:var(--gold);letter-spacing:2px;
+    }
+    .meaning-parts{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:16px;text-align:left;margin-top:35px;
+    }
+    .meaning-parts div{
+      border:1px solid var(--line);padding:25px;background:#0d1218
+    }
+    .meaning-parts b{display:block;color:var(--gold);font-size:22px;margin-bottom:8px}
+    .founder{background:#0a0d12}
+    .founder-card{
+      max-width:900px;margin-top:32px;padding:36px;
+      background:linear-gradient(145deg,#131920,#0d1117);
+      border:1px solid var(--line);
+    }
+    .founder-card h3{font-size:29px;margin-bottom:12px}
+    .founder-card p{color:#c1c7cf;margin-bottom:15px}
+    .quote{padding:70px 20px;text-align:center;background:#05070a}
+    .quote p{max-width:820px;margin:auto;font-size:clamp(23px,4vw,34px);font-weight:650;line-height:1.4}
+    .quote span{
+      display:block;margin-top:20px;color:var(--gold);
+      font-size:12px;letter-spacing:4px;text-transform:uppercase
+    }
+    .cta{
+      text-align:center;padding:90px 20px;
+      background:radial-gradient(circle at center,#202a35 0%,#090c11 60%);
+    }
+    .cta h2{font-size:clamp(32px,5vw,46px);margin-bottom:14px}
+    .cta p{color:#b9c0c9;max-width:680px;margin:0 auto 30px}
+    .button{
+      display:inline-block;margin:5px;padding:13px 26px;
+      border:1px solid var(--gold);color:var(--gold);
+      text-decoration:none;text-transform:uppercase;letter-spacing:1.7px;
+      font-size:12px;transition:.3s
+    }
+    .button:hover{background:var(--gold);color:#07090c}
+    footer{text-align:center;padding:30px 20px;color:#707985;font-size:13px;border-top:1px solid var(--line)}
+    @media(max-width:700px){
+      .nav-links{display:none}
+      section{padding:65px 0}
+      .story-box,.founder-card{padding:23px}
+      .meaning-parts{grid-template-columns:1fr}
+      h1{letter-spacing:-2px}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">MINI<span>VERSE</span> VAULT</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#founder">Founder</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-content">
+    <div class="eyebrow">Welcome to the Collection</div>
+    <h1>Mini<span>Verse</span> Vault</h1>
+    <div class="tagline">Miniatures. Builds. Legends.</div>
+    <p>
+      A world where legendary cars, characters, spacecraft, aircraft,
+      Formula 1 machines and LEGO creations become part of one miniature universe.
+    </p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">What is <span>MiniVerse Vault?</span></h2>
+    <p class="intro">
+      MiniVerse Vault is more than a collection channel. It is a place for
+      miniature worlds, childhood memories and the stories behind the things we love.
+    </p>
+    <br>
+    <p class="intro">
+      From a 1:64 diecast sitting on a shelf to a detailed LEGO spacecraft
+      assembled piece by piece, every collectible has something to say.
+      Some remind us of a movie. Some take us back to childhood. Others
+      represent a racing legend, a favourite character or simply the joy
+      of building something with our own hands.
+    </p>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="container">
+    <h2 class="section-title">How the <span>Vault Began</span></h2>
+    <div class="story-box">
+      <p>It started with a feeling many of us know.</p>
+      <p>
+        As children, we saw miniature cars, LEGO sets, action figures and
+        movie characters on shelves. Some of us owned them. Some of us
+        could only look at them and imagine the worlds they belonged to.
+      </p>
+      <p>Years later, that fascination never really disappeared. It simply grew up.</p>
+      <p>
+        MiniVerse Vault was created from that idea: that growing older
+        doesn't mean leaving those memories behind. Sometimes it means
+        finally having the opportunity to bring them home.
+      </p>
+      <p>
+        What began as an appreciation for miniature cars and LEGO gradually
+        became something much bigger — a universe containing racing legends,
+        movie vehicles, characters, spaceships, aircraft, Formula 1 machines
+        and builds that deserve a place on the shelf.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="container">
+    <h2 class="section-title">What We <span>Cherish</span></h2>
+    <p class="intro">
+      MiniVerse Vault is built around a simple belief: collectibles are
+      not just objects. They are memories, stories and pieces of imagination.
+    </p>
+
+    <div class="pillars">
+      <div class="pillar"><div class="icon">🧱</div><h3>LEGO & Builds</h3><p>From Formula 1 cars to spacecraft and characters, we celebrate the creativity of building something from individual pieces.</p></div>
+      <div class="pillar"><div class="icon">🏎️</div><h3>Diecast & Scale Models</h3><p>1:64, 1:43 and beyond. Small-scale models of cars, racing machines, aircraft and other icons find their place in the Vault.</p></div>
+      <div class="pillar"><div class="icon">🏁</div><h3>F1 & Motorsport</h3><p>Ferrari, Red Bull, legendary drivers, historic race cars and the stories that made motorsport unforgettable.</p></div>
+      <div class="pillar"><div class="icon">🎬</div><h3>Movies & Characters</h3><p>From Star Wars and superheroes to iconic movie vehicles and characters, the Vault brings screen legends into miniature form.</p></div>
+      <div class="pillar"><div class="icon">🚀</div><h3>Space & Aviation</h3><p>Spaceships, aircraft and helicopters that inspire curiosity about the worlds beyond our shelves.</p></div>
+      <div class="pillar"><div class="icon">📦</div><h3>Collector Memories</h3><p>The real collection is made of memories — the excitement of unboxing, building, discovering and finally placing something special on the shelf.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="meaning">
+  <div class="container">
+    <div class="meaning-box">
+      <h2 class="section-title">Why <span>"MiniVerse Vault"?</span></h2>
+      <p class="intro" style="margin:auto">
+        "Mini" represents the world of scale models, LEGO builds and collectibles.
+      </p>
+      <div class="big">MINI + VERSE + VAULT</div>
+
+      <div class="meaning-parts">
+        <div><b>Mini</b>Our worlds may fit on a shelf.</div>
+        <div><b>Verse</b>Those worlds are limitless — cars, characters, racing, movies, space and imagination can all exist together.</div>
+        <div><b>Vault</b>Every collectible becomes part of a growing archive of memories and stories.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="founder">
+  <div class="container">
+    <h2 class="section-title">The Person Behind the <span>Vault</span></h2>
+    <div class="founder-card">
+      <h3>Naitik Gajjar</h3>
+      <p>
+        MiniVerse Vault was founded by Naitik Gajjar, driven by a simple
+        fascination with miniature worlds and the memories attached to them.
+      </p>
+      <p>
+        What began as an interest in LEGO and miniature vehicles evolved
+        into a broader passion for collecting, building, photographing and
+        sharing pieces of the worlds that inspire us.
+      </p>
+      <p>
+        The idea behind the channel is not simply to show what is in the
+        collection, but to share the feeling behind it — the excitement
+        of opening a new box, the patience of a long LEGO build, the detail
+        of a 1:64 model and the nostalgia of seeing a favourite character
+        or vehicle brought to life in miniature.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <p>"Some memories are too big to forget.<br>Sometimes, we keep them small enough to fit on a shelf."</p>
+  <span>MiniVerse Vault</span>
+</section>
+
+<section class="cta">
+  <h2>Enter the MiniVerse</h2>
+  <p>
+    Follow the journey as we build, unbox, discover and collect miniature
+    versions of the worlds we grew up loving.
+  </p>
+  <a class="button" href="https://www.youtube.com/@MiniVerseVaultYT" target="_blank" rel="noopener">Visit YouTube</a>
+  <a class="button" href="https://www.instagram.com/miniversevaultyt/" target="_blank" rel="noopener">Instagram</a>
+</section>
+
+<footer>
+  © 2026 MiniVerse Vault · Built for collectors, builders and anyone who never stopped being curious.
+</footer>
+
+</body>
+</html>
