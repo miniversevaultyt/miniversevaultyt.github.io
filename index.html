@@ -40,6 +40,10 @@
     }
     .brand{
       text-decoration:none;font-weight:800;letter-spacing:1.5px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand img{
+      width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);
     }
     .brand span{color:var(--gold)}
     .nav-links{display:flex;gap:24px;list-style:none}
@@ -225,7 +229,10 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">MINI<span>VERSE</span> VAULT</a>
+    <a class="brand" href="#top">
+      <img src="https://yt3.googleusercontent.com/2ki5TC18EpGPn0czNYjEJZLZvLyFq2QA44zPjhtgXGu9BJ-7MXSMfBfQrVeU9RACZhhCzO3ABQ=s160-c-k-c0x00ffffff-no-rj" alt="MiniVerse Vault Logo">
+      MINI<span>VERSE</span> VAULT
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#story">Story</a></li>
@@ -462,7 +469,6 @@
 
   function renderTopVideos() {
     const grid = document.getElementById("top-videos-grid");
-    // Top 5 sorted by views
     const top5 = [...channelVideos].sort((a,b) => parseInt(b.views.replace(/,/g,'')) - parseInt(a.views.replace(/,/g,''))).slice(0,5);
     
     grid.innerHTML = top5.map((v, index) => `
@@ -546,7 +552,6 @@
     document.getElementById("modal-body-container").innerHTML = "";
   }
 
-  // Initialize
   renderTopVideos();
   renderLibrary('all');
 </script>
